@@ -21,9 +21,9 @@ import java.util.HashMap;
  * @Date: 2020/8/21 16:30
  */
 @Slf4j
-public  class ResolveService {
+public class ResolveService {
 
-   static   HashMap<String, MarkDownService> serviceMap = new HashMap<>();
+    static HashMap<String, MarkDownService> serviceMap = new HashMap<>();
 
     private static final String WEIXIN = "weixin";
     private static final String CSDN = "csdn";
@@ -35,8 +35,7 @@ public  class ResolveService {
     private static final String V_2_EX = "v2ex";
 
 
-
-    public static String get (MarkDown markDown){
+    public static String get(MarkDown markDown) {
         String website = MarkDownUtil.getUrlOrigin(markDown);
         initMap(website);
         return serviceMap.get(website)
@@ -44,9 +43,19 @@ public  class ResolveService {
 
     }
 
+    public static void main(String[] args) {
+        MarkDown markDown = new MarkDown();
+        markDown.setBlogUrl("https://blog.csdn.net/xianzuzhicai/article/details/129670668?spm=1001.2100.3001.7377&utm_medium=distribute.pc_feed_blog.none-task-blog-personrec_tag-3-129670668-null-null.nonecase&depth_1-utm_source=distribute.pc_feed_blog.none-task-blog-personrec_tag-3-129670668-null-null.nonecase");
+        markDown.setWebsite("csdn");
+
+        String str = get(markDown);
+        System.out.println(str);
+    }
+
+
     private static void initMap(String website) {
         if (!serviceMap.containsKey(website)) {
-            log.info("Init MarkdownService for {}" ,website);
+            // log.info("Init MarkdownService for {}" ,website);
             if (WEIXIN.equals(website)) {
                 serviceMap.put(website, new WeiXinHandleService());
 
@@ -57,23 +66,23 @@ public  class ResolveService {
                 serviceMap.put(website, new CsdnBlogHandleService());
 
             } else if (ZHIHU.equals(website)) {
-                serviceMap.put(website,new ZhihuHandleService());
+                serviceMap.put(website, new ZhihuHandleService());
 
             } else if (JUEJIN.equals(website)) {
-                serviceMap.put(website,new JuejinHandleService());
+                serviceMap.put(website, new JuejinHandleService());
 
-            }  else if (SEGMENTFAULT.equals(website)) {
-                serviceMap.put(website,new SegmentFaultHandleService());
+            } else if (SEGMENTFAULT.equals(website)) {
+                serviceMap.put(website, new SegmentFaultHandleService());
 
 
-            }  else if (JIANSHU.equals(website)) {
-                serviceMap.put(website,new JianshuHandleService());
+            } else if (JIANSHU.equals(website)) {
+                serviceMap.put(website, new JianshuHandleService());
 
-            }else if (V_2_EX.equals(website)) {
-                serviceMap.put(website,new V2exHandleService());
+            } else if (V_2_EX.equals(website)) {
+                serviceMap.put(website, new V2exHandleService());
 
             } else {
-                log.info("暂时还没有解决方案.");
+                //log.info("暂时还没有解决方案.");
                 throw new RuntimeException("暂时还没有解决方案");
             }
         }

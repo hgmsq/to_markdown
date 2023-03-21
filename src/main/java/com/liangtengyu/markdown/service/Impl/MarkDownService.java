@@ -65,11 +65,11 @@ public abstract class MarkDownService implements HandleService {
             try {
                 handleImg(markDown, document);
             } catch (InterruptedException e) {
-                log.info("图片处理异常.");
+                //log.info("图片处理异常.");
                 e.printStackTrace();
             }
         } else {
-            log.info("没有图片需要下载.图片处理结束.");
+            //log.info("没有图片需要下载.图片处理结束.");
         }
 
         return document.html();
@@ -163,7 +163,7 @@ public abstract class MarkDownService implements HandleService {
             });
         }
         cdl.await();
-        log.info("下载图片总耗时: "+(System.currentTimeMillis()-l)+"ms");
+        //log.info("下载图片总耗时: "+(System.currentTimeMillis()-l)+"ms");
     }
 
     /**
@@ -193,7 +193,7 @@ public abstract class MarkDownService implements HandleService {
 
     public void doDownloadImages(File imageFile, String imageSrc) {
         //下载图片⬇️
-        log.info("catch picture :{}", imageSrc);
+        //log.info("catch picture :{}", imageSrc);
         byte[] bytes = HttpUtil.downloadBytes(imageSrc);
         ImageUtil.byte2image(bytes, imageFile.getPath());
     }
@@ -208,7 +208,7 @@ public abstract class MarkDownService implements HandleService {
      */
     private String handleLinkStyle(MarkDown markDown, Element element, String imageSrc) {
         if (imageSrc.startsWith("data:image/svg+xml;utf8")) {
-            log.info("ignore svg type images");
+            // log.info("ignore svg type images");
             return null;
         }
 

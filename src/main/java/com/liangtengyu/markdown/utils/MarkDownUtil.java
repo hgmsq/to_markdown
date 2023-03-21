@@ -54,7 +54,7 @@ public class MarkDownUtil {
             String[] split = httpsSplit[1].split("\\.");
             net = split[0];
         }
-        log.info("请求链接>>> {} 来源解析为:{}",url,net);
+        //log.info("请求链接>>> {} 来源解析为:{}",url,net);
         markDown.setWebsite(net);
         return net;
     }
@@ -64,7 +64,8 @@ public class MarkDownUtil {
     }
 
     public static void main(String[] args) {
-        String a = "https://zhuanlan.zhihu.com/p/52843516";
+        //String a = "https://zhuanlan.zhihu.com/p/52843516";
+        String a ="https://blog.csdn.net/xishining/article/details/128439852";
         MarkDown markDown = new MarkDown();
         markDown.setBlogUrl(a);
         String urlOrigin = getUrlOrigin(markDown);

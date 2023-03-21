@@ -48,13 +48,13 @@ public class RequestController {
         Map<String,String> resultMap = new HashMap<>();
         String result = null;
         try {
-            log.info("开始解析 请求地址为: "+markDown.getBlogUrl()+" 请求ID: "+ id);
+            //log.info("开始解析 请求地址为: "+markDown.getBlogUrl()+" 请求ID: "+ id);
             result = ResolveService.get(markDown);
             resultMap.put("code","0");
             resultMap.put("markdown",result);
-            log.info(saveFileService.saveToFile(result,id,markDown));
-            log.info("解析完成 返回markdown结果 "+ id);
-            log.info("-------------------------------------------------------------");
+//            log.info(saveFileService.saveToFile(result,id,markDown));
+//            log.info("解析完成 返回markdown结果 "+ id);
+//            log.info("-------------------------------------------------------------");
         } catch (Exception e) {
             e.printStackTrace();
             resultMap.put("code","-1");

@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "SETTING")
-@Data
+
 public class SETTING implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,4 +35,43 @@ public class SETTING implements Serializable {
     @Column(name = "REMARK")
     private String REMARK;
 
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public String getConfigName() {
+        return configName;
+    }
+
+    public void setConfigName(String configName) {
+        this.configName = configName;
+    }
+
+    public String getConfigValue() {
+        return configValue;
+    }
+
+    public void setConfigValue(String configValue) {
+        this.configValue = configValue;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getREMARK() {
+        return REMARK;
+    }
+
+    public void setREMARK(String REMARK) {
+        this.REMARK = REMARK;
+    }
 }

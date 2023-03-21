@@ -1,6 +1,7 @@
 package com.liangtengyu.markdown.service.Impl;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.util.URLUtil;
 import com.liangtengyu.markdown.dao.MDDao;
 import com.liangtengyu.markdown.dao.SETTINGDao;
 import com.liangtengyu.markdown.entity.MD;
@@ -32,6 +33,7 @@ public class SaveFileServiceImpl implements SaveFileService {
     SETTINGDao settingDao;
     @Override
     public String saveToFile(String result, String id, MarkDown markDownm) throws IOException {
+
         SETTING mdSavePath = settingDao.findbyname("MD_Save_Path");
         System.out.println(mdSavePath);
         //通过此接口,将markdown保存为文本
@@ -67,7 +69,7 @@ public class SaveFileServiceImpl implements SaveFileService {
         md.setSavePath(savePath);
         md.setBlogUrl(markdown.getBlogUrl());
         mdDao.save(md);
-        log.info("保存到数据库成功!");
+        //log.info("保存到数据库成功!");
     }
 
     private String getTitle(String result) {

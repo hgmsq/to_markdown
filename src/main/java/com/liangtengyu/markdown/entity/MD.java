@@ -13,7 +13,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Data
 @Table(name = "MD")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class MD implements Serializable {
@@ -48,4 +47,59 @@ public class MD implements Serializable {
     @Column(name = "CREATE_TIME")
     private Date createTime;
 
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public String getTITLE() {
+        return TITLE;
+    }
+
+    public void setTITLE(String TITLE) {
+        this.TITLE = TITLE;
+    }
+
+    public String getCONTEXT() {
+        return CONTEXT;
+    }
+
+    public void setCONTEXT(String CONTEXT) {
+        this.CONTEXT = CONTEXT;
+    }
+
+    public String getPNAME() {
+        return PNAME;
+    }
+
+    public void setPNAME(String PNAME) {
+        this.PNAME = PNAME;
+    }
+
+    public String getSavePath() {
+        return savePath;
+    }
+
+    public void setSavePath(String savePath) {
+        this.savePath = savePath;
+    }
+
+    public String getBlogUrl() {
+        return blogUrl;
+    }
+
+    public void setBlogUrl(String blogUrl) {
+        this.blogUrl = blogUrl;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

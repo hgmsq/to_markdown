@@ -13,7 +13,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PIC")
-@Data
 public class PIC implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,4 +32,35 @@ public class PIC implements Serializable {
     @Column(name = "CREATE_TIME")
     private Date createTime;
 
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public String getPNAME() {
+        return PNAME;
+    }
+
+    public void setPNAME(String PNAME) {
+        this.PNAME = PNAME;
+    }
+
+    public String getPATH() {
+        return PATH;
+    }
+
+    public void setPATH(String PATH) {
+        this.PATH = PATH;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }
