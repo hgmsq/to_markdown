@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章抓取</title>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var btn = $("#btn");
+            btn.click(function () {
+                var str=$("#blogUrl").val();
+               var  configInfo= {
+                    blogUrl: str
+                };
+                $.ajax({
+                    url: '/resolve/mark',
+                    type: 'post',
+                    contentType:'application/json',
+                    data:JSON.stringify(configInfo),  //字符串
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#txt").val(data.markdown);
+                        //alert("后台验证码：" + data);
+                    }
+                })
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<div>
+    <span>博客地址：</span> <input type="text" id="blogUrl" name="blogUrl" style="width: 500px;"/>
+    <input id="btn" type="button" value="获取数据"/>
+</div>
+<br>
+
+<div>
+    <textarea  id="txt" type="text" style="width: 700px;height: 450px;" >
+
+    </textarea>
+</div>
+
+
+
+
+</body>
+</html>

@@ -68,7 +68,7 @@ export default {
     onSubmit() {
       if (this.configInfo.blogUrl.length > 10) {
         this.spinning = true;
-        this.$axios.post('/resolve/mark', this.configInfo).then(r => {
+        this.$axios.post('http://localhost:9999/resolve/mark', this.configInfo).then(r => {
           this.data = r.data
           this.spinning = false;
 
