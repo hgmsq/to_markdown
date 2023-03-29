@@ -45,10 +45,7 @@ public class ResolveService {
 
     public static void main(String[] args) {
         MarkDown markDown = new MarkDown();
-//        markDown.setBlogUrl("https://blog.csdn.net/xishining/article/details/129280095?spm=1001.2014.3001.5502");
-//        markDown.setWebsite("csdn");
-
-        markDown.setBlogUrl("https://blog.csdn.net/xishining/article/details/129739090?spm=1001.2014.3001.5502");
+        markDown.setBlogUrl("https://blog.csdn.net/xishining/article/details/129788171?spm=1001.2014.3001.5501");
         markDown.setWebsite("csdn");
 
         String str = get(markDown);

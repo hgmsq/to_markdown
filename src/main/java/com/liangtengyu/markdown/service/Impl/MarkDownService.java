@@ -132,30 +132,32 @@ public abstract class MarkDownService implements HandleService {
                         return;
                     }
 
-                    String name = UUID.randomUUID().toString().split("-")[0];
-                    // 下载图片
-                    String fileName = downImage(markDown, element, name);
-
-
-                    String path = markDown.getImageUrl() + "/" + fileName;
-                    imageUrl.set(path);
-                    // 替换地址
-                    element.attr("src", imageUrl.get());
-                    element.attr("alt", fileName);
-                    //下载完毕 保存数据库
-                    PIC pic = new PIC();
-                    pic.setCreateTime(new Date());
-                    pic.setPNAME(id);
-                    pic.setPATH(path);
-                    PICDao picdao = AppBean.getBean(PICDao.class);
-                    picdao.save(pic);
+//                    String name = UUID.randomUUID().toString().split("-")[0];
+//                    // 下载图片
+//                    String fileName = downImage(markDown, element, name);
+//
+//
+//                    String path = markDown.getImageUrl() + "/" + fileName;
+//                    imageUrl.set(path);
+//                    // 替换地址
+//                    element.attr("src", imageUrl.get());
+//                    element.attr("alt", fileName);
+//                    //下载完毕 保存数据库
+//                    PIC pic = new PIC();
+//                    pic.setCreateTime(new Date());
+//                    pic.setPNAME(id);
+//                    pic.setPATH(path);
+//                    PICDao picdao = AppBean.getBean(PICDao.class);
+//                    picdao.save(pic);
 
 
                     semaphore.release();
-                } catch (IOException e) {
-                    System.out.println(imageSrc + "下载图片失败,cause by :" + e.getMessage());
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                }
+//                catch (IOException e) {
+//                    System.out.println(imageSrc + "下载图片失败,cause by :" + e.getMessage());
+//                    e.printStackTrace();
+//                }
+                catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     cdl.countDown();
